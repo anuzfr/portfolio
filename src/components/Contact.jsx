@@ -16,6 +16,10 @@ export default function ContactSection() {
   const containerRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [velocity, setVelocity] = useState({ dx: 2, dy: 2 });
+  const [color, setColor] = useState('#22c55e'); // initial green
+
+  // Array of bright colors
+  const colors = ['#22c55e', '#f87171', '#facc15', '#38bdf8', '#a78bfa', '#f472b6', '#fbbf24'];
 
   // Contact form handlers
   const handleChange = (e) => {
@@ -46,10 +50,23 @@ export default function ContactSection() {
       let newY = position.y + velocity.dy;
       let newDx = velocity.dx;
       let newDy = velocity.dy;
+      let hitWall = false;
 
       // Bounce inside the container bounds
-      if (newX <= 0 || newX + logoWidth >= containerWidth) newDx = -newDx;
-      if (newY <= 0 || newY + logoHeight >= containerHeight) newDy = -newDy;
+      if (newX <= 0 || newX + logoWidth >= containerWidth) {
+        newDx = -newDx;
+        hitWall = true;
+      }
+      if (newY <= 0 || newY + logoHeight >= containerHeight) {
+        newDy = -newDy;
+        hitWall = true;
+      }
+
+      // Change color on wall hit
+      if (hitWall) {
+        const newColor = colors[Math.floor(Math.random() * colors.length)];
+        setColor(newColor);
+      }
 
       setPosition({ x: newX, y: newY });
       setVelocity({ dx: newDx, dy: newDy });
@@ -111,12 +128,12 @@ export default function ContactSection() {
             {/* DVD Screensaver */}
             <div
               ref={containerRef}
-              className="bg-zinc-900 p-4 border-l-4 border-green-400 rounded-md mt-6 relative h-[200px] md:h-[25git init0px] overflow-hidden"
+              className="bg-zinc-900 p-4 border-l-4 border-green-400 rounded-md mt-6 relative h-[200px] md:h-[250px] overflow-hidden"
             >
               <div
                 ref={logoRef}
-                className="absolute w-24 h-12 bg-green-400 flex items-center justify-center font-bold text-black text-sm rounded-md"
-                style={{ left: position.x, top: position.y }}
+                className="absolute w-24 h-12 flex items-center justify-center font-bold text-black text-sm rounded-md"
+                style={{ left: position.x, top: position.y, backgroundColor: color }}
               >
                 DVD
               </div>
