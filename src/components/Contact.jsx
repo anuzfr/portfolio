@@ -111,7 +111,7 @@ export default function ContactSection() {
             {/* DVD Screensaver */}
             <div
               ref={containerRef}
-              className="bg-zinc-900 p-4 border-l-4 border-green-400 rounded-md mt-6 relative h-[200px] md:h-[250px] overflow-hidden"
+              className="bg-zinc-900 p-4 border-l-4 border-green-400 rounded-md mt-6 relative h-[200px] md:h-[25git init0px] overflow-hidden"
             >
               <div
                 ref={logoRef}
