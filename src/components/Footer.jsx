@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 
 // --- Inline Lucide Icons (Replacing react-icons/fa) ---
 
-// Lucide Icon: GitHub
+// floating dock lagana hai 
+
 const IconGithub = (props) => (
   <svg
     {...props}
