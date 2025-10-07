@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { Mail, Phone } from 'lucide-react';
 
 export default function ContactSection() {
@@ -10,16 +10,6 @@ export default function ContactSection() {
     email: '',
     message: ''
   });
-
-  // DVD screensaver state
-  const logoRef = useRef(null);
-  const containerRef = useRef(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [velocity, setVelocity] = useState({ dx: 2, dy: 2 });
-  const [color, setColor] = useState('#22c55e'); // initial green
-
-  // Array of bright colors
-  const colors = ['#22c55e', '#f87171', '#facc15', '#38bdf8', '#a78bfa', '#f472b6', '#fbbf24'];
 
   // Contact form handlers
   const handleChange = (e) => {
@@ -32,80 +22,22 @@ export default function ContactSection() {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  // DVD logo animation
-  useEffect(() => {
-    let animationFrameId;
-
-    const animate = () => {
-      const container = containerRef.current;
-      const logo = logoRef.current;
-      if (!container || !logo) return;
-
-      const containerWidth = container.clientWidth;
-      const containerHeight = container.clientHeight;
-      const logoWidth = logo.clientWidth;
-      const logoHeight = logo.clientHeight;
-
-      let newX = position.x + velocity.dx;
-      let newY = position.y + velocity.dy;
-      let newDx = velocity.dx;
-      let newDy = velocity.dy;
-      let hitWall = false;
-
-      // Bounce inside the container bounds
-      if (newX <= 0 || newX + logoWidth >= containerWidth) {
-        newDx = -newDx;
-        hitWall = true;
-      }
-      if (newY <= 0 || newY + logoHeight >= containerHeight) {
-        newDy = -newDy;
-        hitWall = true;
-      }
-
-      // Change color on wall hit
-      if (hitWall) {
-        const newColor = colors[Math.floor(Math.random() * colors.length)];
-        setColor(newColor);
-      }
-
-      setPosition({ x: newX, y: newY });
-      setVelocity({ dx: newDx, dy: newDy });
-
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animationFrameId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [position, velocity]);
-
   return (
     <section className="min-h-screen bg-black text-white py-12 px-6 relative overflow-hidden flex items-center">
-      {/* Background map effect */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 text-xs text-gray-600 transform -rotate-12">
-          Brooklyn • Prospect Park • Empire Blvd
-        </div>
-        <div className="absolute top-1/2 right-1/3 text-xs text-gray-600 transform rotate-6">
-          Sterling St • Lincoln Rd • Maple St
-        </div>
-        <div className="absolute bottom-1/3 left-1/2 text-xs text-gray-600">
-          Clarkson Ave • Parkside Ave • Winthrop St
-        </div>
-      </div>
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
         {/* Header */}
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10">
-          Contact Us<span className="text-green-400">.</span>
+          Contact Me<span className="text-green-400">.</span>
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-          {/* Left Column: Info + DVD Screensaver */}
+          {/* Left Column: Contact Info */}
           <div className="space-y-6">
             {/* Contact Info */}
             <div className="border-l-4 border-green-400 pl-6 space-y-6">
               <div>
-                <h3 className="text-gray-400 text-xs uppercase tracking-wider mb-2">Store hours</h3>
+                <h3 className="text-gray-400 text-xs uppercase tracking-wider mb-2">I'm from</h3>
               </div>
               <div>
                 <div className="text-base">
@@ -122,20 +54,6 @@ export default function ContactSection() {
                     <Phone className="w-4 h-4" /> 415 500 7665
                   </a>
                 </div>
-              </div>
-            </div>
-
-            {/* DVD Screensaver */}
-            <div
-              ref={containerRef}
-              className="bg-zinc-900 p-4 border-l-4 border-green-400 rounded-md mt-6 relative h-[200px] md:h-[250px] overflow-hidden"
-            >
-              <div
-                ref={logoRef}
-                className="absolute w-24 h-12 flex items-center justify-center font-bold text-black text-sm rounded-md"
-                style={{ left: position.x, top: position.y, backgroundColor: color }}
-              >
-                DVD
               </div>
             </div>
           </div>
