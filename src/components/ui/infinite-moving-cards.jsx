@@ -68,15 +68,20 @@ export const InfiniteMovingCards = ({
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}>
         {items.map((item, idx) => (
-          <li
-            className="relative gap-between w-50 h-50 aspect-square shrink-0 rounded-md border border-zinc-700 bg-zinc-900 p-1 flex items-center justify-center overflow-hidden"
-            key={`${item.quote}-${idx}`}>
-            {item.logo ? (
-              <img src={item.logo} alt={`${item.quote} logo`} className="h-full w-full object-contain" />
-            ) : (
-              <span className="text-[10px] font-semibold text-white truncate">{item.quote}</span>
-            )}
-          </li>
+         <li
+         className="relative w-50 h-50 aspect-square shrink-0 rounded-md border border-zinc-700 bg-zinc-900 p-1 flex flex-col items-center justify-center overflow-hidden"
+         key={`${item.quote}-${idx}`}
+       >
+         <img
+           src={item.logo}
+           alt={`${item.quote} logo`}
+           className="h-3/4 w-auto object-contain"
+         />
+         <span className="text-[15px] font-semibold text-white truncate mt-1 text-center">
+           {item.quote}
+         </span>
+       </li>
+       
         ))}
       </ul>
     </div>

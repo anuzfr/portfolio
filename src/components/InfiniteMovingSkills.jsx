@@ -34,24 +34,22 @@ const testimonials = [
   { quote: "jsPDF", title: "", logo: "/logo_img/jspdf.png" },
 ];
 const testimonials_2 = [
-  { quote: "Vercel", title: "", logo: "" },
+  { quote: "Vercel", title: "", logo: "/logo_img/vercel.png" },
   { quote: "Python", title: "", logo: "/logo_img/python.png" },
   { quote: "NPM", title: "", logo: "/logo_img/npm.png" },
-  { quote: "RESTapi", title: "", logo: "" },
-  { quote: "Acertinity", title: "", logo: "" },
+  { quote: "RESTapi", title: "", logo: "/logo_img/restapi.png" },
+  { quote: "Acertinity", title: "", logo: "/logo_img/acertinity.png" },
   { quote: "Canva", title: "", logo: "/logo_img/canva.png" },
   { quote: "PostgreSQL", title: "", logo: "/logo_img/postgresql.png" },
-  { quote: "Mongoose", title: "", logo: "" },
+  { quote: "Mongoose", title: "", logo: "/logo_img/mongoose.png" },
   { quote: "Firebase", title: "", logo: "/logo_img/firebase.png" },
-  { quote: "Figma", title: "", logo: "" },
-  { quote: "Prisma", title: "", logo: "" },
-  { quote: "Socket.io", title: "", logo: "" },
-  { quote: "Redis", title: "", logo: "" },
-  { quote: "Redux", title: "", logo: "" },
-  { quote: "JWT", title: "", logo: "" },
-  { quote: "swagger", title: "", logo: "" },
-  
-  { quote: "AI", title: "", logo: "" },
+  { quote: "Figma", title: "", logo: "/logo_img/figma.png" },
+  { quote: "Prisma", title: "", logo: "/logo_img/prisma.png" },
+  { quote: "Socket.io", title: "", logo: "/logo_img/socket.png" },
+  { quote: "Redis", title: "", logo: "/logo_img/redis.png" },
+  { quote: "Redux", title: "", logo: "/logo_img/redux.png" },
+  { quote: "JWT", title: "", logo: "/logo_img/jwt.png" },
+  { quote: "swagger", title: "", logo: "/logo_img/swagger.png" },
 ];
 
 export default InfiniteMovingSkills;
