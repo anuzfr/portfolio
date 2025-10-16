@@ -1,6 +1,8 @@
 'use client'
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react'; 
+import {FloatingDockDemo} from '../components/FloatingDockDemo.jsx';
+
 
 const MySelfSection = () => {
 
@@ -59,22 +61,19 @@ const MySelfSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-              <button
-                onClick={() => { /* Add your navigation logic here */ }}
-                className="group inline-flex items-center justify-between sm:justify-start gap-3 px-6 py-4 bg-white text-zinc-900 font-medium hover:bg-zinc-100 transition-colors"
-              >
-                <span>{profile.buttonText}</span>
-                <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </button>
-              
-              <a 
-                href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-2 px-6 py-4 text-zinc-400 hover:text-white transition-colors font-mono text-sm"
-              >
-                {profile.email}
-              </a>
-            </div>
+            <div className="flex flex-row sm:flex-row gap-6 sm:gap-8 items-center">
+                <button
+                  onClick={() => { /* Add your navigation logic here */ }}
+                  className="group inline-flex items-center justify-between sm:justify-start gap-3 px-6 py-4 bg-white text-zinc-900 font-medium hover:bg-zinc-100 transition-colors flex-shrink-0"
+                >
+                  <span>{profile.buttonText}</span>
+                  <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </button>
+                
+                <div className="">
+                  <FloatingDockDemo/>
+                </div>
+          </div>
           </div>
 
         </div>
